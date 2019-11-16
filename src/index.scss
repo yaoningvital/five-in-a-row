@@ -1,0 +1,44 @@
+.game {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  .board {
+    .board-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+
+      .square {
+        margin-left: -1px;
+        margin-top: -1px;
+        height: 40px;
+
+        &.win {
+          button {
+            color: red;
+          }
+        }
+
+        button {
+          color: black;
+          width: 40px;
+          height: 40px;
+          background: #fff;
+          border-style: none;
+          border: 1px solid #999;
+          font-size: 20px;
+          font-weight: bold;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .btns {
+    width: 250px;
+    margin-left: 20px;
+  }
+}
