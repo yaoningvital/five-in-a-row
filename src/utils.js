@@ -40,7 +40,7 @@ export function calculateWinner (squares, rowNum, columnNum) {
   return null
 }
 
-// 基于给定的棋子所在的index，返回以它为起点的向右、向下、向右下角方向的组合方式
+// 基于给定的棋子所在的index，返回以它为起点的向右、向下、向右下、向左下 角方向的组合方式
 // var return=[
 //   [0,1,2,3,4],
 //   [0...],
@@ -71,11 +71,20 @@ function winablePermutation (index, rowNum, columnNum) {
     permutation.push(p)
   }
   
-  // 如果向右下角方向延伸4格，还在棋盘内的话
+  // 如果向右下角方向延伸4格，还在棋盘内的话，将这个组合推送进去
   if ((columnIndex + 4 <= columnNum - 1) && (rowIndex + 4 <= rowNum - 1)) {
     let p = []
     for (let i = 0; i < 5; i++) {
       p.push(index + i * columnNum + i)
+    }
+    permutation.push(p)
+  }
+  
+  // 如果向左下角方向延伸4格，还在棋盘内的话，将这个组合推送进去
+  if ((columnIndex - 4 >= 0) && (rowIndex + 4 <= rowNum - 1)) {
+    let p = []
+    for (let i = 0; i < 5; i++) {
+      p.push(index + columnNum * i - i)
     }
     permutation.push(p)
   }
